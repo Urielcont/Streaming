@@ -30,10 +30,8 @@ const logger = createLogger({
 export default logger;
 
 //   NIVELES DE LOGGER
-logger.error(" Error crítico en la aplicación");
-logger.warn("Advertencia: Uso de memoria alto");
-logger.info("Servidor iniciado correctamente");
-logger.http("Petición GET");
-logger.verbose("Cargando configuración del sistema...");
-logger.debug("Variable x = 42, verificando valores...");
-logger.silly("Mensaje de prueba en nivel más bajo.");
+// logger.error(" Error crítico en la aplicación");
+// logger.warn("Advertencia: Uso de memoria alto");
+// logger.info("Servidor iniciado correctamente");
+// logger.http("Petición GET");
+// logger.debug("Variable x = 42, verificando valores...");
