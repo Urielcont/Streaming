@@ -3,7 +3,7 @@ import logger from '../utils/logger';
 
 
 // conectarse base de datos
-const connectDB = async () => {
+const connectDBMongo = async () => {
     try {
       await mongoose.connect(process.env.MONGODB_URI, {
         serverSelectionTimeoutMS: 5000, // Tiempo de espera antes de fallar
@@ -17,6 +17,4 @@ const connectDB = async () => {
     }
   };
   
-  export default connectDB;
-
-
+export default connectDBMongo;

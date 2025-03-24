@@ -8,7 +8,8 @@ import cookieParser from "cookie-parser";
 import logger from "./utils/logger";
 import swaggerDocs  from "./utils/swagger";
 import rutaUsers from "./routes/userRoutes";
-import connectDB from "./config/configDB"; //Archivo de configuracion de la base de datos
+import connectDBMongo from "./config/configDBMongo"; //Archivo de configuracion de la base de datos de MongoDB
+import { testConnectionPostgreSQL } from "./config/configDBPostgreSQL"; //Archivo de configuracion de la base de datos de PostgreSQL
 // servidor de express
 const app = express();
 
@@ -37,7 +38,8 @@ app.use(errorHandler);
 
 // Funcion para inicar el servidor en el puerto establecido
 const startServerExpress = async () => {
-    await connectDB(); //Conectar a la base de datos
+    await connectDBMongo(); //Conectar a la base de datos de MONGODB
+    await testConnectionPostgreSQL(); 
     try {
      app.listen(process.env.PORT, () => {
         logger.info({message: `Servidor listo en el puerto: ${process.env.PORT}`})
