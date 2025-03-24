@@ -2,7 +2,15 @@
 import { createLogger, format, transports } from "winston";
 
 const logger = createLogger({
-  level: "info",
+  levels: {
+    fatal: 0,
+    error: 1,
+    warn: 2,
+    info: 3,
+    http: 4,
+    debug: 5,
+    trace: 6
+  },
   format: format.combine(
     format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
     format.printf(info => `${info.timestamp} [${info.level.toUpperCase()}]: ${info.message}`),
@@ -20,3 +28,12 @@ const logger = createLogger({
 });
 
 export default logger;
+
+//   NIVELES DE LOGGER
+logger.error(" Error crítico en la aplicación");
+logger.warn("Advertencia: Uso de memoria alto");
+logger.info("Servidor iniciado correctamente");
+logger.http("Petición GET");
+logger.verbose("Cargando configuración del sistema...");
+logger.debug("Variable x = 42, verificando valores...");
+logger.silly("Mensaje de prueba en nivel más bajo.");
